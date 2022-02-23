@@ -18,7 +18,7 @@ public class Main {
             else if (input == 1){
                 right_boarder = middle + 1;
             }
-            if (input == 2) {
+            else if (input == 2) {
                 System.out.println("Your number is " + middle);
                 break;
             }
