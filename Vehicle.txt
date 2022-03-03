@@ -1,0 +1,19 @@
+package classes;
+
+public class Vehicle {
+
+    public Vehicle(String model, float speed, float fuel) {
+        this.model = model;
+        this.fuel = fuel;
+        this.speed = speed;
+    }
+    
+    public int distance_fuel(Vehicle car, float distance) {
+        return (car.fuel / 100) * distance;
+    }
+
+    public float time(Vehicle car, float distance) {
+        return distance / car.speed;
+    }
+
+}
