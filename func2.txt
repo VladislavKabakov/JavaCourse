@@ -1,0 +1,40 @@
+package functions;
+
+public class Function2 {
+    public static void main(String[] args) {
+        int[] a = new int[]{1, 2, 3, 4, 5};
+        int[] b = new int[]{-5, -6, -7};
+        System.out.printf("Test 1 %s.\n", ClassForTest.compareResults(merge(a, b), new int[]{-7, -6, -5, 1, 2, 3, 4, 5}) ? "passed" : "failed");
+        System.out.printf("Test 2 %s.\n", ClassForTest.compareResults(merge(new int[0], new int[0]), new int[]{}) ? "passed" : "failed");
+        System.out.printf("Test 3 %s.\n", ClassForTest.compareResults(merge(b, a), new int[]{5, 4, 3, 2, 1, -5, -6, -7}) ? "passed" : "failed");
+    }
+    private static int[] merge(int[] a, int[] b) {
+        
+	boolean posFlag = false;
+        
+	if (a.length > 0) {
+            posFlag = Function1.findMax(a) == a[0] ? false : true;
+        }
+        
+	int[] afterMerge = new int[a.length + b.length];
+        for (int ind = 0; ind < a.length; ++ind) {
+            afterMerge[ind] = a[ind];
+        }
+        
+	for (int ind = a.length; ind < afterMerge.length; ++ind) {
+            afterMerge[ind] = b[ind - a.length];
+        }
+       
+	for (int ind = 0; ind < afterMerge.length; ++ind) {
+            for (int jind = ind + 1; jind < afterMerge.length; ++jind) {
+                if (posFlag ? afterMerge[ind] > afterMerge[jind] : afterMerge[ind] < afterMerge[jind]) {
+                    int curr = afterMerge[ind];
+                    afterMerge[ind] = afterMerge[jind];
+                    afterMerge[jind] = curr;
+                }
+            }
+        }
+        return afterMerge;
+    }
+
+}
