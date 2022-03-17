@@ -1,0 +1,56 @@
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        sortedArray list = new sortedArray();
+        while (true) {
+            System.out.println("Введите команду для выполнения\n0 - Завершение программы\n1 - Добавление элемента\n2 - Поиск максимума\n3 - Вывод массива на экран");
+            Scanner in = new Scanner(System.in);
+            int number = in.nextInt();
+            if (number == 0) {
+                break;
+            } else if (number == 1) {
+                System.out.println("Введите целое число, которое вы хотите добавить в массив\n");
+                int toAdd = in.nextInt();
+                list.addValue(toAdd);
+            } else if (number == 2) {
+                list.maxElement();
+            } else if (number == 3) {
+                list.printArr();
+            } else {
+                System.out.println("Неверная команда, попробуйте ещё раз");
+            }
+        }
+    }
+}
+
+
+class sortedArray {
+    ArrayList<Integer> sortedArr = new ArrayList<Integer>();
+
+    void addValue(int value) {
+        sortedArr.add(value);
+        Collections.sort(sortedArr);
+    }
+
+    void maxElement() {
+        if (sortedArr.size() > 0) {
+            System.out.println("Максимальный эелемент - " + Collections.max(sortedArr));
+        } else {
+            System.out.println("Пустой массив");
+        }
+    }
+
+    void printArr() {
+        Collections.sort(sortedArr);
+        System.out.print("{ ");
+        for (Integer val : sortedArr) {
+            System.out.print(val + " ");
+        }
+        System.out.print("}");
+    }
+}
