@@ -1,0 +1,43 @@
+package com.company;
+
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] arr) {
+        System.out.println("Точка А имеет на плоскости OXY координаты X и Y");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите координату X точки А");
+        double xA = sc.nextDouble();
+        System.out.println("Введите координату Y точки А");
+        double yA = sc.nextDouble();
+        Point A = new Point (xA, yA);
+        System.out.println("Точка B имеет на плоскости OXY координаты X и Y");
+        System.out.println("Введите координату X точки В");
+        double xB = sc.nextDouble();
+        System.out.println("Введите координату Y точки В");
+        double yB = sc.nextDouble();
+        Point B = new Point (xB, yB);
+        System.out.println(A.distanceTo(B));
+        System.out.println(A.toString());
+    }
+}
+
+class Point {
+    private double xP;
+    private double yP;
+
+    public Point(double xP, double yP) {
+        this.xP = xP;
+        this.yP = yP;
+    }
+
+    double distanceTo(Point b) {
+        return Math.sqrt(Math.pow((xP - b.xP), 2) + Math.pow((yP - b.yP), 2));
+    }
+
+    public String toString() {
+        return String.format("Представление точки: (%s, %s)", xP, yP);
+    }
+}
