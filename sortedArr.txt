@@ -5,16 +5,15 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        Random random = new Random();
         sortedArray list = new sortedArray();
         while (true) {
-            System.out.println("Введите команду для выполнения\n0 - Завершение программы\n1 - Добавление элемента\n2 - Поиск максимума\n3 - Вывод массива на экран");
+            System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г¬Г Г­Г¤Гі Г¤Г«Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї\n0 - Г‡Г ГўГҐГ°ГёГҐГ­ГЁГҐ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г»\n1 - Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ \n2 - ГЏГ®ГЁГ±ГЄ Г¬Г ГЄГ±ГЁГ¬ГіГ¬Г \n3 - Г‚Г»ГўГ®Г¤ Г¬Г Г±Г±ГЁГўГ  Г­Г  ГЅГЄГ°Г Г­");
             Scanner in = new Scanner(System.in);
             int number = in.nextInt();
             if (number == 0) {
                 break;
             } else if (number == 1) {
-                System.out.println("Введите целое число, которое вы хотите добавить в массив\n");
+                System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГҐГ«Г®ГҐ Г·ГЁГ±Г«Г®, ГЄГ®ГІГ®Г°Г®ГҐ ГўГ» ГµГ®ГІГЁГІГҐ Г¤Г®ГЎГ ГўГЁГІГј Гў Г¬Г Г±Г±ГЁГў\n");
                 int toAdd = in.nextInt();
                 list.addValue(toAdd);
             } else if (number == 2) {
@@ -22,7 +21,7 @@ public class Main {
             } else if (number == 3) {
                 list.printArr();
             } else {
-                System.out.println("Неверная команда, попробуйте ещё раз");
+                System.out.println("ГЌГҐГўГҐГ°Г­Г Гї ГЄГ®Г¬Г Г­Г¤Г , ГЇГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГҐГ№Вё Г°Г Г§");
             }
         }
     }
@@ -39,9 +38,9 @@ class sortedArray {
 
     void maxElement() {
         if (sortedArr.size() > 0) {
-            System.out.println("Максимальный эелемент - " + Collections.max(sortedArr));
+            System.out.println("ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г»Г© ГЅГҐГ«ГҐГ¬ГҐГ­ГІ - " + Collections.max(sortedArr));
         } else {
-            System.out.println("Пустой массив");
+            System.out.println("ГЏГіГ±ГІГ®Г© Г¬Г Г±Г±ГЁГў");
         }
     }
 
