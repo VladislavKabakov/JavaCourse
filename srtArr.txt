@@ -1,0 +1,67 @@
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        sortedArray list = new sortedArray();
+        while (true) {
+            System.out.println("Введите команду\n0 - Завершение программы\n1 - Добавление элемента\n2 - Максимальный элемент\n3 - Вывод массива");
+            Scanner in = new Scanner(System.in);
+            int num = in.nextInt();
+            if (num == 0) {
+                break;
+            } else if (num == 1) {
+                System.out.println("Введите элемент-строку, который нужно добавить\n");
+                String toAdd = in.next();
+                list.addValue(toAdd);
+            } else if (num == 2) {
+                list.maxElement();
+            } else if (num == 3) {
+                list.printArr();
+            } else {
+                System.out.println("Неверная команда");
+            }
+        }
+    }
+}
+
+
+class sortedArray {
+    LinkedList<String> sortedArr = new LinkedList<>();
+
+    void addValue(String value) {
+        if (sortedArr.size() == 0) {
+            sortedArr.add(value);
+        } else {
+            if (value.length() <= (sortedArr.get(0)).length()) {
+                sortedArr.add(0, value);
+            } else {
+                for (int i = 0; i < sortedArr.size(); ++i) {
+                    if (value.length() >= (sortedArr.get(i)).length()) {
+                        sortedArr.add(i, value);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    void maxElement() {
+        if (sortedArr.size() > 0) {
+            System.out.println("Максимальный элемент - " + Collections.max(sortedArr));
+        } else {
+            System.out.println("Пустой массив");
+        }
+    }
+
+    void printArr() {
+        Collections.sort(sortedArr);
+        System.out.print("{ ");
+        for (String val : sortedArr) {
+            System.out.print(val + " ");
+        }
+        System.out.print("}");
+    }
+}
