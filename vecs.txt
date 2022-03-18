@@ -1,0 +1,60 @@
+package com.company;
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Vector vecCl = new Vector(....);
+    }
+}
+
+class Vector {
+    LinkedList<Double> vec = new LinkedList<>();
+
+    public Vector(LinkedList<Double> vec) {
+        this.vec = vec;
+    }
+
+    double vecMod() {
+        double sum = 0;
+        for (double v : vec) {
+            sum += Math.pow(v, 2);
+        }
+        return Math.sqrt(sum);
+    }
+
+    double scalProd(Vector B) {
+        int scP = 0;
+        for (int i = 0; i < vec.size(); ++i) {
+            scP += vec.get(i) * (B.vec).get(i);
+        }
+        return scP;
+    }
+
+    double findCos(Vector B) {
+        double sPr = scalProd(B);
+        double modA = vecMod();
+        double modB = vecMod();
+        return Math.acos(sPr / (modA * modB));
+    }
+
+    void summVecs(Vector B) {
+        Vector currSum = new Vector(....);
+        for (int i = 0; i < vec.size(); ++i) {
+            currSum.vec.add(vec.get(i) + B.vec.get(i));
+        }
+    }
+    void diffVecs(Vector B) {
+        Vector currSum = new Vector(....);
+        for (int i = 0; i < vec.size(); ++i) {
+            currSum.vec.add(vec.get(i) - B.vec.get(i));
+        }
+    }
+    double square(Vector B){
+        double sSin = Math.sin(Math.toRadians(findCos(B)));
+        double modA = vecMod();
+        double modB = vecMod(); 
+        return modA * modB * sSin;
+    }
+}
