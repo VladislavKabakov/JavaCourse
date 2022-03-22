@@ -1,0 +1,113 @@
+public abstract class Developer {
+    public enum Level{
+        Junior, Middle, Senior
+    }
+
+    public abstract void writeCode();
+    public abstract void printInfo();
+
+    public int workExperience;
+    public Level level;
+    public String[] techSet;
+}
+
+public class DeveloperFabric {
+    public Developer makeDeveloper(DeveloperType type){
+        Developer developer = null;
+        switch(type){
+            case Java:
+                developer = new JavaDeveloper(12, Developer.Level.Senior, new String[]{"Windows", "Linux", "MacOS"});
+                break;
+            case Python:
+                developer = new PythonDeveloper(4, Developer.Level.Middle, new String[]{"Linux","MacOS","SQL"});
+                break;
+        }
+        return developer;
+    }
+}
+
+public class DeveloperTest {
+    public static void main(String[] args) {
+        DeveloperFabric fabric = new DeveloperFabric();
+        Developer dev1 = fabric.makeDeveloper(DeveloperType.Java);
+        Developer dev2 = fabric.makeDeveloper(DeveloperType.Python);
+
+        dev1.writeCode();
+        dev2.writeCode();
+
+    }
+}
+
+public enum DeveloperType {
+    Java, Python
+}
+
+public class JavaDeveloper extends Developer{
+    public JavaDeveloper(int workExperience, Level level, String[] techSet){
+        this.workExperience = workExperience;
+        this.level = level;
+        this.techSet = techSet;
+
+    }
+
+    public void writeCode(){
+        System.out.println("Java developer is writing code");
+        printInfo();
+    }
+    public void printInfo(){
+        System.out.println("Im Java developer");
+
+        switch(level){
+            case Junior:
+                System.out.println("My level is Junior");
+                break;
+            case Middle:
+                System.out.println("My level is Middle");
+                break;
+            case Senior:
+                System.out.println("My level is Senior");
+                break;
+        }
+        System.out.println("My technologies:");
+
+        for(int i = 0; i<techSet.length; i++)
+            System.out.println(techSet[i] + " ");
+
+    }
+}
+
+public class PythonDeveloper extends Developer{
+
+
+    public PythonDeveloper(int workExperience, Level level, String[] techSet){
+        this.workExperience = workExperience;
+        this.level = level;
+        this.techSet = techSet;
+    }
+
+
+    public void writeCode(){
+        System.out.println("Python developer is writing code");
+        printInfo();
+    }
+    public void printInfo(){
+        System.out.println("Im Python developer");
+
+        switch(level){
+            case Junior:
+                System.out.println("My level is Junior");
+                break;
+            case Middle:
+                System.out.println("My level is Middle");
+                break;
+            case Senior:
+                System.out.println("My level is Senior");
+                break;
+        }
+        System.out.println("My technologies:");
+
+        for(int i = 0; i<techSet.length; i++)
+            System.out.println(techSet[i] + " ");
+
+    }
+}
